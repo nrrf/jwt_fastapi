@@ -4,20 +4,13 @@ class UserRegistrationIn(BaseModel):
     iduser : str
     email : str
     phone : str
-    password: str
+    password: str 
+    disabled: bool
 
 class UserIn(BaseModel): 
     iduser : str 
     password : str  
-    disabled: bool
+    disabled: bool 
 
-class NewUserPassword(BaseModel): 
-    iduser : str 
-    password : str 
-    newpassword: str
-
-class UserOut(BaseModel): 
-    email: str 
-    phone: str
-    class Config:
-        orm_mode = True
+class ChangePassword(BaseModel): 
+    new_password: str 
