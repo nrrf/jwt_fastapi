@@ -4,7 +4,7 @@ from typing import Optional
 from pydantic import BaseModel
 
 class UserInDB(Base): 
-    __tablename__ = "user"
+    __tablename__ = "USER"
 
     iduser = Column(String, primary_key= True, unique=True)
     email = Column(String, nullable=False)
