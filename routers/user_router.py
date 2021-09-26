@@ -125,3 +125,11 @@ async def changepassword( new_password: ChangePassword,current_user: UserIn = De
 @router.get("/users/me/")
 async def read_users_me(current_user: UserIn = Depends(get_current_active_user)):
     return current_user
+
+@router.delete("/users/me/delete") 
+async def delete_user(current_user: UserIn = Depends(get_current_active_user), db:Session=Depends(get_db)):  
+    user_in_db = db.query(UserInDB).get(current_user.iduser)  
+    print(user_in_db)
+    db.delete(user_in_db) 
+    db.commit()
+    return {"Usuario eliminado": True}

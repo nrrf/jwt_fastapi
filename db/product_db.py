@@ -6,7 +6,8 @@ class ProductInDB(Base):
     __tablename__ = "product"
 
     id_product = Column(Integer, primary_key= True, unique=True, autoincrement=True)
-    id_user = Column(String, nullable=False)
+    iduser = Column(String, nullable=False)
+    idcategory = Column(String, nullable=False)
     name = Column(String, nullable=False)
     description = Column(String, nullable=False)
 Base.metadata.create_all(bind=engine) 
